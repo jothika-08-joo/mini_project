@@ -36,8 +36,8 @@ joo=cal()
 
 
 
-
 '''
+#without using functions
 a=float(input("enter a num:"))
 b=float(input("enter a num:"))
 operator=input("choose operator +,-,*,/:")
