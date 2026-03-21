@@ -1,28 +1,31 @@
-print("1.Add task")
-print("2.finished task")
-a=int(input("enter 1 or 2: "))
-add_task=[]
-if a==1:
-    num=int(input("enter a number of tasks:"))
-   
-    for i in range(num):
-        task=input("task:")
-        add_task.append(task)
-    print("tasks were added🥳") 
-    print("your tasks are:")   
-for i in range(len(add_task)):
-    print(i+1,".",add_task[i])  
+tasks=[]
+while True:
+    print("MENU")
+    print("1.Add tasks")
+    print("2.Show tasks")
+    print("3.Remove tasks")
+    print("4.Exit")
+    a=input("enter the number of menu:")
+    if a=="4":
+        break
+    elif a=="1":
+        b=int(input("enter your number of tasks"))
+        for i in range(b):
+            user_task=input("enter your task:")
+            tasks.append(user_task)
+        print("your tasks are added successfully")      
+    elif a=="2":
+        if tasks!=[]:
+            print("your tasks are:")
+            for i in range(len(tasks)):
+                print(f"  ",i+1,".",tasks[i])     
+        else:
+            print("you have  to add the task first choose no.1 to add task")        
+    elif a=="3":
+        num=int(input("enter a no.of tasks to remove:"))
+        for i in range(num):
+            remove_task=input("enter name of your finished task: ")    
+            tasks.remove(remove_task)
+        print("tasks are removed")    
 
-if a==2:
-    for i in range(len(add_task)):
-       print(i+1,".",add_task[i])  
-    fin=int(input("enter your finished task number:"))   
-    add_task.pop(fin-1)
-    print("your remaining tasks are:")
-    for i in range(len(add_task)):
-        print(i+1,".",add_task[i])  
 
-
-
-
-    
