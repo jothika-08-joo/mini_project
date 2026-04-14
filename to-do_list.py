@@ -1,13 +1,30 @@
 tasks=[]
+def load_file():
+    try:
+        with open ("tasks.txt","r") as file:
+            for line in file:
+                tasks.append(line.strip())
+    except FileNotFoundError:
+        pass
+def save_file():
+        with open("tasks.txt","w") as file:
+            for task in tasks:
+                file.write(f"{task}\n")     
+    
+        
+load_file()                       
+
 def add_tasks():
     try:
         b=int(input("enter your number of tasks:"))
         for i in range(b):
             user_task=input("enter your task:")
             tasks.append(user_task)
+        save_file()
         print("your tasks are added successfully")   
     except:
         print("enter a valid number") 
+
 def show_tasks():
     if tasks!=[]:
         print("your tasks are:")
@@ -21,6 +38,7 @@ def remove_tasks():
         num=int(input("enter a number of your task to remove:"))
         if 0<=num<=len(tasks)-1:
                 tasks.pop(num)
+                save_file()
                 print("tasks are removed")
         else:
             print("enter a valid number of task")        
@@ -33,6 +51,7 @@ def update_tasks():
         if 0<=update_num<=len(tasks)-1:
             update_task=input("enter your new task name:")
             tasks[update_num]=update_task
+            save_file()
             print("updated successfully")
         else:
             print("enter a correct task number")
